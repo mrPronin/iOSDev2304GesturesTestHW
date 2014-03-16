@@ -21,6 +21,8 @@
 		3E960A0E18D5DF8400FE88C2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E9609F018D5DF8300FE88C2 /* UIKit.framework */; };
 		3E960A1618D5DF8400FE88C2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3E960A1418D5DF8400FE88C2 /* InfoPlist.strings */; };
 		3E960A1818D5DF8400FE88C2 /* _304GesturesTestHWTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E960A1718D5DF8400FE88C2 /* _304GesturesTestHWTests.m */; };
+		3E960A2518D5DFC700FE88C2 /* Totoro.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3E960A2318D5DFC700FE88C2 /* Totoro.gif */; };
+		3E960A2918D5E00C00FE88C2 /* UIImageAnimatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E960A2818D5E00C00FE88C2 /* UIImageAnimatedGIF.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,9 @@
 		3E960A1318D5DF8400FE88C2 /* 2304GesturesTestHWTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "2304GesturesTestHWTests-Info.plist"; sourceTree = "<group>"; };
 		3E960A1518D5DF8400FE88C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3E960A1718D5DF8400FE88C2 /* _304GesturesTestHWTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _304GesturesTestHWTests.m; sourceTree = "<group>"; };
+		3E960A2318D5DFC700FE88C2 /* Totoro.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Totoro.gif; sourceTree = "<group>"; };
+		3E960A2718D5E00C00FE88C2 /* UIImageAnimatedGIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageAnimatedGIF.h; sourceTree = "<group>"; };
+		3E960A2818D5E00C00FE88C2 /* UIImageAnimatedGIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageAnimatedGIF.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +117,8 @@
 		3E9609F218D5DF8400FE88C2 /* 2304GesturesTestHW */ = {
 			isa = PBXGroup;
 			children = (
+				3E960A2618D5DFF100FE88C2 /* gifCategory */,
+				3E960A2118D5DFB000FE88C2 /* Assets */,
 				3E9609FB18D5DF8400FE88C2 /* RITAppDelegate.h */,
 				3E9609FC18D5DF8400FE88C2 /* RITAppDelegate.m */,
 				3E9609FE18D5DF8400FE88C2 /* Main.storyboard */,
@@ -150,6 +157,23 @@
 				3E960A1418D5DF8400FE88C2 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3E960A2118D5DFB000FE88C2 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				3E960A2318D5DFC700FE88C2 /* Totoro.gif */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		3E960A2618D5DFF100FE88C2 /* gifCategory */ = {
+			isa = PBXGroup;
+			children = (
+				3E960A2718D5E00C00FE88C2 /* UIImageAnimatedGIF.h */,
+				3E960A2818D5E00C00FE88C2 /* UIImageAnimatedGIF.m */,
+			);
+			name = gifCategory;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,6 +255,7 @@
 			files = (
 				3E960A0518D5DF8400FE88C2 /* Images.xcassets in Resources */,
 				3E9609F718D5DF8400FE88C2 /* InfoPlist.strings in Resources */,
+				3E960A2518D5DFC700FE88C2 /* Totoro.gif in Resources */,
 				3E960A0018D5DF8400FE88C2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E9609FD18D5DF8400FE88C2 /* RITAppDelegate.m in Sources */,
+				3E960A2918D5E00C00FE88C2 /* UIImageAnimatedGIF.m in Sources */,
 				3E9609F918D5DF8400FE88C2 /* main.m in Sources */,
 				3E960A0318D5DF8400FE88C2 /* RITViewController.m in Sources */,
 			);

@@ -10,4 +10,6 @@
 
 @interface RITViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIImageView *gif;
+
 @end
