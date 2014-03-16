@@ -9,7 +9,10 @@
 #import "RITViewController.h"
 #import "UIImageAnimatedGIF.h"
 
-@interface RITViewController ()
+@interface RITViewController () <UIGestureRecognizerDelegate>
+
+@property (assign, nonatomic) CGFloat gifScale;
+@property (assign, nonatomic) CGFloat gifRotation;
 
 @end
 
@@ -46,6 +49,20 @@
                                                    action:@selector(handleRightSwipe:)];
     rightSwipeGesture.direction = UISwipeGestureRecognizerDirectionRight;
     [self.view addGestureRecognizer:rightSwipeGesture];
+    
+    // zoom
+    UIPinchGestureRecognizer* pinchGesture = [[UIPinchGestureRecognizer alloc]
+                                              initWithTarget:self
+                                              action:@selector(handlePinch:)];
+    [self.view addGestureRecognizer:pinchGesture];
+    pinchGesture.delegate = self;
+    
+    // rotation
+    UIRotationGestureRecognizer* rotationGesture = [[UIRotationGestureRecognizer alloc]
+                                                    initWithTarget:self
+                                                    action:@selector(handleRotation:)];
+    [self.view addGestureRecognizer:rotationGesture];
+    rotationGesture.delegate = self;
     
 }
 
@@ -136,6 +153,48 @@
                      completion:^(BOOL finished) {
                      }];
     
+}
+
+- (void) handlePinch:(UIPinchGestureRecognizer*) pinchGesture {
+    
+    NSLog(@"Handle pinch %1.3f", pinchGesture.scale);
+    
+    if (pinchGesture.state == UIGestureRecognizerStateBegan) {
+        self.gifScale = 1;
+    }
+    
+    CGFloat newScale = 1.f + pinchGesture.scale - self.gifScale;
+    
+    CGAffineTransform currentTransform = self.gif.transform;
+    CGAffineTransform newTransform = CGAffineTransformScale(currentTransform, newScale, newScale);
+    self.gif.transform = newTransform;
+    
+    self.gifScale = pinchGesture.scale;
+}
+
+- (void) handleRotation:(UIRotationGestureRecognizer*)rotationGesture {
+    
+    NSLog(@"Handle rotation %1.3f", rotationGesture.rotation);
+    
+    if (rotationGesture.state == UIGestureRecognizerStateBegan) {
+        self.gifRotation = 0;
+    }
+    
+    CGFloat newRotation = rotationGesture.rotation - self.gifRotation;
+    
+    CGAffineTransform currentTransform = self.gif.transform;
+    CGAffineTransform newTransform = CGAffineTransformRotate(currentTransform, newRotation);
+    self.gif.transform = newTransform;
+    
+    self.gifRotation = rotationGesture.rotation;
+    
+}
+
+#pragma mark - UIGestureRecognizerDelegate
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
+shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    return YES;
 }
 
 @end
